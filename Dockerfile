@@ -7,7 +7,7 @@ RUN apk add --no-cache ca-certificates
 RUN apk add --no-cache \
     redis
 
-COPY docker/redis/redis.conf /etc/redis.conf
+COPY redis.conf /etc/redis.conf
 
 EXPOSE 6379
 
