@@ -1,10 +1,11 @@
-FROM alpine:3.11.3
+ARG UBUNTU=rolling
+FROM ubuntu:$UBUNTU
 MAINTAINER Sebastian Braun <sebastian.braun@fh-aachen.de>
-# base alpine template
 
-# Download requirements
-RUN apk add --no-cache \
-    redis
+RUN apt-get update && apt-get install --no-install-recommends -y -q \
+    redis \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
 COPY redis.conf /etc/redis.conf
 
