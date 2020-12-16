@@ -1,8 +1,13 @@
+# vim:set ft=dockerfile:
 ARG UBUNTU=rolling
 FROM ubuntu:$UBUNTU
 MAINTAINER Sebastian Braun <sebastian.braun@fh-aachen.de>
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y -q \
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG en_US.UTF-8
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && apt-get install --no-install-recommends -y -q \
     redis \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*

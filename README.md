@@ -1,3 +1,3 @@
 # redis
 
-Redis installation on alpine linux
+Redis installation on ubuntu
