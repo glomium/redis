@@ -16,4 +16,5 @@ COPY redis.conf /etc/redis.conf
 
 EXPOSE 6379
 
+HEALTHCHECK --interval=10s --timeout=1s --start-period=5s CMD redis-cli ping
 ENTRYPOINT ["redis-server", "/etc/redis.conf"]
